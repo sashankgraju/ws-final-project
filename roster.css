@@ -1,0 +1,20 @@
+@import url("./index.css");
+
+.class-group { margin-top: 48px; }
+.class-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.2rem, 1.2vw + 1rem, 1.6rem);
+  border-left: 4px solid var(--akdphi-pink);
+  padding-left: 10px;
+}
+
+.class-nav {
+  display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 20px;
+}
+.class-nav a {
+  display: inline-block; padding: 6px 10px; border:1px solid var(--muted);
+  border-radius: 999px; background:#fff; color: var(--ink); font-weight:600;
+}
+.class-nav a:hover { background: var(--soft); text-decoration: none; }
+
+.sister .meta h4 { margin: 0 0 4px; font-size: 1rem; }
