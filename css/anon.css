@@ -1,5 +1,5 @@
-@import url("css/index.css");
-@import url("css/about.css"); /* Reuse header gradients */
+@import url("index.css");
+@import url("about.css"); /* Reuse header gradients */
 
 /* Layout Wrapper */
 .contact-wrapper {
