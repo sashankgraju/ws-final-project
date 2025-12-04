@@ -3,7 +3,7 @@
 
 .rush-hero {
   position: relative;
-  background-image: url('/img/FA25_Rush_Banner.PNG');
+  background-image: url('img/FA25_Rush_Banner.PNG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
