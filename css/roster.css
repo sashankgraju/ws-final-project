@@ -1,11 +1,6 @@
 @import url("index.css");
-
-/* section headings and jump links */
-
 .class-group { margin-top: 56px; }
 .class-group { scroll-margin-top: 90px; }
-
-/* page section background to match index aesthetic */
 .section {
   padding: 3rem 0 4rem;
   background:
@@ -127,7 +122,7 @@
   box-shadow: 0 12px 28px rgba(75, 156, 211, 0.18);
 }
 
-/* page container and section rhythm */
+
 .container {
   max-width: var(--maxw);
   margin: 0 auto;
