@@ -1,0 +1,136 @@
+@import url("index.css");
+
+.page-header {
+  padding: 3rem 0 2rem;
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, rgba(75, 156, 211, 0.08), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(207, 183, 246, 0.1), transparent 60%),
+    var(--bg);
+}
+
+.section-title {
+  font-family: "Baskerville", "Times New Roman", Georgia, serif;
+  font-size: 2.5rem;
+  color: var(--ink);
+  margin: 0.5rem 0 1rem;
+  font-weight: 400;
+}
+
+.content-section {
+  padding: 4rem 1.25rem;
+  background-color: var(--bg);
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+#roster-title {
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.split-layout {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-direction: row;
+}
+
+.split-layout.reverse {
+  flex-direction: row-reverse;
+}
+
+.text-block {
+  flex: 1;
+}
+
+.text-block h3 {
+  font-family: "Baskerville", "Times New Roman", Georgia, serif;
+  font-size: clamp(1.2rem, 1.2vw + 1rem, 1.6rem);
+  color: var(--ink);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--akdphi-purple);
+  padding-left: 10px;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.text-block p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--slate);
+  margin-bottom: 1.25rem;
+}
+
+.image-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.feature-img.fit-contain {
+    object-fit: contain;
+    background: transparent;
+    box-shadow: none;
+}
+
+.feature-img:hover {
+  transform: scale(1.02);
+}
+
+
+.cta-strip {
+  text-align: center;
+  padding: 1rem 1rem;
+  background: linear-gradient(135deg, rgba(75, 156, 211, 0.1), rgba(207, 183, 246, 0.2));
+  margin-top: 2rem;
+}
+
+.cta-strip h3 {
+  font-family: "Baskerville", serif;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.cta-strip p {
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+
+@media (max-width: 900px) {
+  .split-layout, 
+  .split-layout.reverse {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .text-block h3 {
+    border-bottom: none;
+  }
+
+  .feature-img {
+    max-height: 300px;
+    width: 100%;
+  }
+}

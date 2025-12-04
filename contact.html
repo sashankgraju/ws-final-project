@@ -151,6 +151,36 @@
   </div>
 </footer>
 
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+ 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+ 
+    status.innerText = "Sending your message...";
+ 
+    const data = new FormData(form);
+    
+    // Your Google Script URL
+    const action = "https://script.google.com/macros/s/AKfycbz8WBoVRLiOODa5rKBfyalHnBpzstqpGo065Qn7XJ2sjIVJRvD3dHmiMGD7jM83G7-sNw/exec";
+ 
+    fetch(action, {
+      method: "POST",
+      body: data,
+      mode: "no-cors", 
+    })
+      .then(() => {
+      
+        status.innerText = "Message sent successfully!";
+        form.reset();
+      })
+      .catch((error) => {
+        status.innerText = "Oops! There was a problem.";
+        console.error("Error:", error);
+      });
+  });
+</script>
 </body>
 </html>
 

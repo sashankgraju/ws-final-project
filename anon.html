@@ -68,8 +68,7 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <p class="eyebrow">Get In Touch</p>
-      <h2 class="section-title">Contact Us</h2>
+      <p class="eyebrow">Anonymous Reporting Form</p>
     </div>
   </section>
 
@@ -77,53 +76,17 @@
     
     <!-- General Contact Form -->
     <div class="form-container">
-      <h3>Send Us A Message Below!</h3>
-      <p class="form-desc">Have a question about rush, events, or our chapter?
-        Feel free to reach out, and we'll get back to you shortly!</p>
+      <h3>Anonymous Reporting Form</h3>
+      <p class="form-desc">If you want to let us know about something anonymously, please fill out the form below.
+        We review these submissions on a frequent basis.</p>
       
       <form id="contact-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your email address" required />
-
-        <label for="pn">Phone Number</label>
-        <input type="text" id="pn" name="pn" placeholder="(123) 456-7890" required />
-
-        <label for="message">Message</label>
+       <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
 
         <button type="submit" class="submit-btn">Submit Message</button>
         <p id="form-status"></p>
       </form>
-    </div>
-
-    <!-- Sidebar: Anonymous Reporting & Info -->
-    <div class="contact-sidebar">
-      
-      <!-- Anonymous Reporting (Required by Project Guide) -->
-      <div class="sidebar-box anonymous-box">
-        <h4>Anonymous Reporting</h4>
-        <p>We value the safety and well-being of our community. If you need to report an incident or concern anonymously, please use our secure reporting form.</p>
-        <a href="anon.html" class="btn secondary small">Open Reporting Form</a>
-      </div>
-
-      <!-- General Info -->
-      <div class="sidebar-box info-box">
-        <h4>Other Ways to Connect</h4>
-        <ul class="contact-list">
-          <li>
-            <strong>Email:</strong><br>
-            <a href="mailto:unc.akdphi.president@gmail.com">unc.akdphi.president@gmail.com</a>
-          </li>
-          <li>
-            <strong>Socials:</strong><br>
-            <a href="https://www.instagram.com/uncakdphi">@uncakdphi</a>
-          </li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </main>
@@ -151,10 +114,37 @@
   </div>
 </footer>
 
+<script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+ 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+ 
+    status.innerText = "Sending your message...";
+ 
+    const data = new FormData(form);
+    
+    // Your Google Script URL
+    const action = "https://script.google.com/macros/s/AKfycby-uJupLy8jrjRP6kTj0OvKvvd8MxN0aYWMEVYTekP7XFh1L4qEghI1JcJ98NEk7-XxZg/exec";
+    
+    fetch(action, {
+      method: "POST",
+      body: data,
+      mode: "no-cors", 
+    })
+      .then(() => {
+      
+        status.innerText = "Message sent successfully!";
+        form.reset();
+      })
+      .catch((error) => {
+        status.innerText = "Oops! There was a problem.";
+        console.error("Error:", error);
+      });
+  });
+</script>
 </body>
 </html>
-
-
-
 
 

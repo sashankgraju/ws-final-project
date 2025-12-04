@@ -1,4 +1,4 @@
-@import url("/css/index.css");
+@import url("index.css");
 
 /* section headings and jump links */
 
@@ -128,10 +128,10 @@
 }
 
 /* page container and section rhythm */
-.section .container {
+.container {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 1.25rem;
+
 }
 
 /*footer styling*/

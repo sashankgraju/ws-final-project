@@ -1,14 +1,14 @@
 @import url("/css/index.css");
-@import url("/css/about.css");
+@import url("/css/about.css"); /* Reuse header gradients */
 
-
+/* Layout Wrapper */
 .contact-wrapper {
   display: flex;
   gap: 3rem;
   padding-bottom: 4rem;
 }
 
-
+/* LEFT COLUMN: GENERAL FORM */
 .form-container {
   flex: 2; /* Takes up 2/3 of space */
   background: #fff;
@@ -31,7 +31,7 @@
   margin-bottom: 2rem;
 }
 
-
+/* FORM STYLING - Based on your Lecture Slide */
 form {
   width: 100%;
 }
@@ -44,7 +44,7 @@ label {
   font-size: 0.95rem;
 }
 
-
+/* Style from slide: Full width, padding, no border (until focus) */
 input[type=text],
 input[type=email],
 textarea {
@@ -53,7 +53,7 @@ textarea {
   margin: 0 0 20px 0;
   box-sizing: border-box;
   border: none;
-  background-color: #f1f5f9;
+  background-color: #f1f5f9; /* Light grey/blue tint */
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
@@ -68,7 +68,7 @@ textarea:focus {
   outline: 2px solid var(--akdphi-purple);
 }
 
-
+/* SUBMIT BUTTON */
 .submit-btn {
   background: linear-gradient(135deg, var(--akdphi-purple), var(--unc-blue));
   color: white;
@@ -90,13 +90,17 @@ textarea:focus {
   box-shadow: 0 8px 20px rgba(75, 156, 211, 0.3);
 }
 
-
+/* Form Status Messages */
 #form-status {
   margin-top: 1rem;
   font-weight: 600;
   text-align: center;
   min-height: 1.5rem;
 }
+.status-sending { color: var(--slate); }
+.status-success { color: #2e7d32; } /* Green */
+.status-error   { color: #d32f2f; } /* Red */
+
 
 /* RIGHT COLUMN: SIDEBAR */
 .contact-sidebar {
@@ -113,6 +117,7 @@ textarea:focus {
   border: 1px solid var(--muted);
 }
 
+/* Anonymous Reporting Specifics */
 .anonymous-box {
   background: linear-gradient(135deg, rgba(19, 41, 75, 0.03), rgba(75, 156, 211, 0.05));
   border-left: 4px solid var(--unc-blue);

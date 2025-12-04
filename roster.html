@@ -1088,6 +1088,25 @@
   </div>
 </footer>
 
+<script>
+  // Mobile menu
+  const btn = document.getElementById('menubtn');
+  const list = document.getElementById('navlist');
+  btn?.addEventListener('click', () => {
+    const open = list.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  // Mark active nav by URL path
+  const here = location.pathname.split('/').pop();
+  document.querySelectorAll('nav a').forEach(a=>{
+    const file = a.getAttribute('href').split('/').pop();
+    if (file === here) a.classList.add('active');
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
