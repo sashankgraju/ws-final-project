@@ -53,7 +53,7 @@
       <div class="icons">
         <a href="https://www.instagram.com/uncakdphi" target="_blank" class="insta-link">
           <img src="/img/icons/instagram-logo.png" alt="Instagram" class="insta-icon" />
-
+          </a>
         <a href="https://www.akdphi.org/" target="_blank" class="national-link">
           <img src="/img/icons/akdphi.png" alt="National Site" class="natsite-icon">
         </a>
@@ -81,35 +81,35 @@
     </div>
 
 <!-- Slideshow container -->
-    <div class="slideshow-container">
+<div class="slideshow-container">
 
   <div class="slide fade active">
-      <img/src="/img/revealpic.jpg" alt="Our House"/>
+      <img src="/img/revealpic.jpg" alt="Our House"/>
     <div class="caption">Meet our active house 💜</div>
   </div>
 
   <div class="slide fade">
-    <img/src="/img/tarheel.JPG" alt="Sisters with Carolina Pride"/>
+    <img src="/img/tarheel.JPG" alt="Sisters with Carolina Pride"/>
   </div>
 
   <div class="slide fade">
-    <img/src="/img/bca-dinner.jpg" alt="Sisters together"/>
+    <img src="/img/bca-dinner.jpg" alt="Sisters together"/>
   </div>
 
   <div class="slide fade">
-    <img/src="/img/festival.jpg" alt="Sisters at a music festival"/>
+    <img src="/img/festival.jpg" alt="Sisters at a music festival"/>
   </div>
 
   <div class="slide fade">
-    <img/src="/img/MASR.jpg" alt="Sisters traveling in virginia"/>
+    <img src="/img/MASR.jpg" alt="Sisters traveling in virginia"/>
   </div>
 
   <div class="slide fade">
-    <img/src="/img/carolina-pride.JPG" alt="Sisters with Carolina Pride"/>
+    <img src="/img/carolina-pride.JPG" alt="Sisters with Carolina Pride"/>
   </div>
 
   <div class="slide fade">
-    <img/src="/img/FA25_Rush_Banner.PNG" alt="FA 25 Rush Banner">
+    <img src="/img/FA25_Rush_Banner.PNG" alt="FA 25 Rush Banner">
   </div>
 
   <button class="prev">&#10094;</button>
@@ -217,7 +217,7 @@
       </a>
     </div>
     <div class="footer-text">
-      <p>©<span id=\"year\"></span> by UNC alpha Kappa Delta Phi International Sorority, Inc. All rights reserved.</p>
+      <p>© <span id="year"></span> by UNC alpha Kappa Delta Phi International Sorority, Inc. All rights reserved.</p>
       <p>Established by Malika Gevariya</p>
       <p>Created by Malika Gevariya and Sashank Ganapathiraju</p>
       <p>Maintained by Michelle Tan</p>
@@ -242,76 +242,79 @@
   });
 
   // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
-  // Slideshow
-  document.addEventListener("DOMContentLoaded", function () {
+// Slideshow
+document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".slide");
   const dots = document.querySelectorAll(".dot");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
 
-    // If there's no slideshow on this page, quietly bail out
-    if (!slides.length) return;
+  // If there's no slideshow on this page, quietly bail out
+  if (!slides.length) return;
 
-    let currentSlide = 0;
-    let autoPlayInterval = null;
+  let currentSlide = 0;
+  let autoPlayInterval = null;
 
-    function showSlide(index) {
-      if (index >= slides.length) index = 0;
-      if (index < 0) index = slides.length - 1;
-      currentSlide = index;
+  function showSlide(index) {
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    currentSlide = index;
 
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === currentSlide);
-      });
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-      showSlide(currentSlide - 1);
-    }
-
-    // Buttons
-    prevBtn?.addEventListener("click", () => {
-      prevSlide();
-      restartAutoplay();
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentSlide);
     });
 
-    nextBtn?.addEventListener("click", () => {
-      nextSlide();
-      restartAutoplay();
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentSlide);
     });
+  }
 
-    // Dots
-    dots.forEach(dot => {
-      dot.addEventListener("click", () => {
-        const index = parseInt(dot.getAttribute("data-slide"), 10);
-        showSlide(index);
-        restartAutoplay();
-      });
-    });
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
 
-    function startAutoplay() {
-      autoPlayInterval = setInterval(nextSlide, 5000);
-    }
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
 
-    function restartAutoplay() {
-      clearInterval(autoPlayInterval);
-      startAutoplay();
-    }
-
-    // Init
-    showSlide(0);
-    startAutoplay();
+  // Buttons
+  prevBtn?.addEventListener("click", () => {
+    prevSlide();
+    restartAutoplay();
   });
+
+  nextBtn?.addEventListener("click", () => {
+    nextSlide();
+    restartAutoplay();
+  });
+
+  // Dots
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const index = parseInt(dot.getAttribute("data-slide"), 10);
+      showSlide(index);
+      restartAutoplay();
+    });
+  });
+
+  function startAutoplay() {
+    autoPlayInterval = setInterval(nextSlide, 5000);
+  }
+
+  function restartAutoplay() {
+    clearInterval(autoPlayInterval);
+    startAutoplay();
+  }
+
+  // Init
+  showSlide(0);
+  startAutoplay();
+});
 </script>
 </body>
 </html>
