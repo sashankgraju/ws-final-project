@@ -4,7 +4,7 @@
   --ink: #0f172a;
   --slate: #475569;
   --muted: #e2e8f0;
-  --bg: #ffffff;
+  --bg: #fbf5ff;
   --radius: 16px;
   --maxw: 1100px;
 }
@@ -20,8 +20,6 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(75, 156, 211, 0.18), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(207, 183, 246, 0.20), transparent 55%),
     var(--bg);
   min-height: 100vh;
   color: var(--ink);
@@ -29,11 +27,22 @@ body {
 }
 
 /* header styling*/
-.top nav {
-  display:flex;
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem;
+.top {
+  padding: 1rem 2rem;
+}
+
+nav ul,
+nav ul.navbar {
+  display: flex;
+  list-style: none;
+  gap: 1.0rem;
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: "Baskerville",
+               "Times New Roman",
+               Georgia,
+               "Times",
+               serif;
 }
 
 .brand {
@@ -41,6 +50,35 @@ body {
   align-items: center;
   gap: 1rem;
   text-align: left;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #111827;
+  width: 100%;
+}
+
+.insta-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.national-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.insta-icon,
+.natsite-icon {
+  width: 30px;
+  height: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.insta-icon:hover,
+.natsite-icon:hover {
+  opacity: 1;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(33%) saturate(619%) hue-rotate(211deg) brightness(104%) contrast(96%);
 }
 
 .logo {
@@ -55,15 +93,26 @@ body {
 }
 
 .titles h1 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 0;
+  font-weight: 400;
+  font-family: "Baskerville", 
+               "Times New Roman", 
+               Georgia, 
+               "Times", 
+               serif;
 }
 
 .titles h2 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0.25rem 0 0 0;
   font-style: italic;
   color: #555;
+  font-family: "Baskerville",
+               "Times New Roman",
+               Georgia,
+               "Times",
+               serif;
 }
 
 /* nav-bar styling */
@@ -89,6 +138,14 @@ nav a {
 
 nav a:hover {
   color: var(--akdphi-purple);
+}
+
+.icons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 2rem;
 }
 
 .dropdown {
@@ -125,8 +182,11 @@ nav a:hover {
 
 /* hero section styling */
 .hero.section {
-  padding: 4rem 0 2rem;
   text-align: center;
+    padding: 4rem 1rem 3rem;
+    background: radial-gradient(circle at top left, rgba(75, 156, 211, 0.1), transparent 50%),
+                radial-gradient(circle at bottom right, rgba(207, 183, 246, 0.1), transparent 50%),
+                var(--bg);
 }
 
 .hero-grid {
@@ -136,16 +196,28 @@ nav a:hover {
 }
 
 .hero-grid h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
+  line-height: 1.3;
   color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  font-family: "Baskerville",
+               "Times New Roman",
+               Georgia,
+               "Times",
+               serif;  font-size: 2.25rem;
+}
+
+.hero-title span {
+  font-style: italic;
+  color: var(--ink);
+  font-size: 3.75rem;
 }
 
 .hero-grid p {
-  margin: 0.5rem 0;
+  margin-top: 0.15rem;
+  font-size: 1rem;
   color: var(--slate);
+  font-weight: 400;
 }
 
 .hero-grid .lead {
@@ -161,6 +233,7 @@ nav a:hover {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 6rem;
 }
 
 .btn {
@@ -172,37 +245,27 @@ nav a:hover {
   transition: 0.15s ease-in-out;
 }
 
-.btn.primary {
+.btn.primary, .btn.secondary {
   background: linear-gradient(135deg, var(--akdphi-purple), var(--unc-blue));
   color: white;
   box-shadow: 0 6px 20px rgba(75, 156, 211, 0.25);
 }
 
-.btn.primary:hover {
+.btn.primary:hover, .btn.secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(75, 156, 211, 0.3);
 }
 
-.btn.secondary {
-  background-color: white;
-  border: 2px solid var(--akdphi-purple);
-  color: var(--ink);
-}
-
-.btn.secondary:hover {
-  background-color: var(--akdphi-purple);
-  color: white;
-}
-
-
 /*slide show animation*/
 .slideshow-container {
   position: relative;
-  max-width: 1000px;
-  width: 100%;
-  margin: 2rem auto;
+  width: 100vw;
+  margin: 0;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .slide {
@@ -216,7 +279,7 @@ nav a:hover {
 
 .slideshow-container img {
   width: 100%;
-  height: 400px;
+  height: 500px;
   max-height: none !important;
   display: block;
   object-fit: cover;
@@ -295,3 +358,275 @@ nav a:hover {
   to   { opacity: 1; }
 }
 
+/*pillars section styling*/
+.pillar.section {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--bg);
+}
+
+.pillar.section h2 {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+  font-family: "Baskerville",
+               "Times New Roman",
+               Georgia,
+               "Times",
+               serif;  font-size: 2.25rem;
+               font-weight: 300;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  font-family: "Baskerville",
+               "Times New Roman",
+               Georgia,
+               "Times",
+               serif;  font-size: 2.25rem;
+}
+
+/*pillar cards styling*/
+.pillar.section {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: radial-gradient(circle at top left, rgba(75, 156, 211, 0.08), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(207, 183, 246, 0.08), transparent 60%),
+              var(--bg);
+}
+
+.pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-header h2 {
+  font-family: "Baskerville", "Times New Roman", Georgia, serif;
+  font-size: 2.75rem;
+  color: var(--ink);
+  font-weight: 400;
+  margin: 0;
+}
+
+.pillar.section > h2 {
+  font-size: 1.5rem;
+  color: var(--slate);
+  margin-bottom: 3rem;
+  font-style: italic;
+  font-family: "Baskerville",
+               "Times New Roman",
+               Georgia,
+               "Times",
+               serif;  font-size: 2.25rem;
+}
+
+/* GRID: 3 cards on first row, 2 on second */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+
+/* CARD STYLING */
+.pillar-card {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.pillar-inner {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.pillar-card:hover .pillar-inner {
+  transform: rotateY(180deg);
+}
+
+.pillar-front,
+.pillar-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pillar-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pillar-back {
+  background-color: white;
+  color: var(--ink);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.pillar-back h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-family: "Baskerville", "Times New Roman", Georgia, serif;
+  color: var(--akdphi-purple);
+}
+
+.pillar-back p {
+  font-size: 0.95rem;
+  color: var(--slate);
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+/* RESPONSIVE: stack gracefully on mobile */
+@media (max-width: 900px) {
+  .pillar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pillar-card:nth-child(4),
+  .pillar-card:nth-child(5) {
+    grid-column: auto;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar-card {
+    max-width: 320px;
+  }
+}
+
+/*footer styling*/
+.site-footer {
+  background: var(--akdphi-purple);
+  color: #fff;
+  padding: 2.5rem 1rem;
+}
+
+.site-footer .footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-footer .footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.site-footer .footer-social .icon {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-footer .footer-social a:hover .icon {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.site-footer .footer-text p {
+  margin: 0.35rem 0;
+  color: #fff;
+}
+/* visually hidden but accessible */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* footer */
+footer {
+  background: #fff;
+  border-top: 1px solid var(--muted);
+  margin-top: 3rem;
+}
+
+footer .container.foot {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+footer .container.foot > div:first-child strong {
+  display: block;
+  font-weight: 700;
+}
+
+footer .container.foot small {
+  color: var(--slate);
+}
+
+footer .social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+footer .social .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--ink);
+  opacity: 0.85;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+footer .social a:hover .icon {
+  color: var(--akdphi-purple);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+  footer .container.foot {
+    justify-content: center;
+    text-align: center;
+  }
+  footer .social {
+    justify-content: center;
+  }
+}
